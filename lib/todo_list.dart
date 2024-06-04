@@ -21,10 +21,33 @@ class _TodoListState extends State<TodoList> {
           child: Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(4),
-              color: widget.todos[index.prio]
+              color: widget.todos[index].priority.color.withOpacity(0/5),
+            ),
+            padding: const EdgeInsets.only(left: 12),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(widget.todos[index].title, style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),),
+                    Text(widget.todos[index].description)
+                  ],
+                ),
+                Container(
+                  padding: const EdgeInsets.all(16),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(4),
+                    color: widget.todos[index].priority.color,
+                  ),
+                  child: Text(widget.todos[index].priority.title),
+                )
+              ],
             ),
           ),
-        )
+        );
       },
     );
   }
