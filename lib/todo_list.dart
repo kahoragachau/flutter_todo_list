@@ -21,7 +21,7 @@ class _TodoListState extends State<TodoList> {
           child: Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(4),
-              color: widget.todos[index].priority.color.withOpacity(0/5),
+              color: widget.todos[index].priority.color.withOpacity(0.5),
             ),
             padding: const EdgeInsets.only(left: 12),
             child: Row(

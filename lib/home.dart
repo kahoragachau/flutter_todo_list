@@ -36,8 +36,9 @@ class _HomeState extends State<Home> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Todo List"),
+        titleTextStyle: const TextStyle(color: Colors.white),
         centerTitle: true,
-        backgroundColor: Colors.grey[200],
+        backgroundColor: Colors.blueGrey[600],
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),
