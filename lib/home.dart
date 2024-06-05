@@ -11,6 +11,9 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
 
+  // form global Key
+  final _formGlobalKey = GlobalKey<FormState>();
+
   final List<Todo> todos = [
     const Todo(
       title: 'Buy Milk',
@@ -43,7 +46,34 @@ class _HomeState extends State<Home> {
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
-          children: [Expanded(child: TodoList(todos: todos))],
+          children: [
+            Expanded(child: TodoList(todos: todos)),
+
+            // Form Widget
+            Form(
+              key: _formGlobalKey,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+
+                  // Submit Button
+                  const SizedBox(height: 20,),
+                  FilledButton(
+                    onPressed: () {
+
+                    }, 
+                    style: FilledButton.styleFrom(
+                      backgroundColor: Colors.grey[800],
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(4)
+                      )
+                    ),
+                    child: const Text("Add")
+                    )
+                ],
+              ),
+            )
+          ],
         ),
       ),
     );
