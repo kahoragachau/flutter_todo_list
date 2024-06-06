@@ -77,8 +77,8 @@ class _HomeState extends State<Home> {
                       label: Text("Todo Description")
                     ),
                     validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return "Enter a brief Description";
+                      if (value == null || value.isEmpty || value.length < 5) {
+                        return "Enter a brief Description Longer than 5 characters though";
                       }
                       return null;
                     },
