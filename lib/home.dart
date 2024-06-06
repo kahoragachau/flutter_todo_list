@@ -70,6 +70,19 @@ class _HomeState extends State<Home> {
                     },
                   ),
 
+                  // Description Text
+                  TextFormField(
+                    maxLength: 128,
+                    decoration: const InputDecoration(
+                      label: Text("Todo Description")
+                    ),
+                    validator: (value){
+                      if (value == null || value.isEmpty) {
+                        return "Enter a brief Description";
+                      }
+                    },
+                  ),
+
                   // Submit Button
                   const SizedBox(height: 20,),
                   FilledButton(
