@@ -76,10 +76,11 @@ class _HomeState extends State<Home> {
                     decoration: const InputDecoration(
                       label: Text("Todo Description")
                     ),
-                    validator: (value){
+                    validator: (value) {
                       if (value == null || value.isEmpty) {
                         return "Enter a brief Description";
                       }
+                      return null;
                     },
                   ),
 
