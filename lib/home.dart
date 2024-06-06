@@ -56,11 +56,25 @@ class _HomeState extends State<Home> {
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
 
+                  // Title Text
+                  TextFormField(
+                    maxLength: 20,
+                    decoration: const InputDecoration(
+                      label: Text("Todo Title")
+                    ),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return "Enter a value for the title";
+                      }
+                      return null;
+                    },
+                  ),
+
                   // Submit Button
                   const SizedBox(height: 20,),
                   FilledButton(
                     onPressed: () {
-
+                      _formGlobalKey.currentState!.validate();
                     }, 
                     style: FilledButton.styleFrom(
                       backgroundColor: Colors.grey[800],
