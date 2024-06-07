@@ -120,7 +120,19 @@ class _HomeState extends State<Home> {
                   const SizedBox(height: 20,),
                   FilledButton(
                     onPressed: () {
-                      _formGlobalKey.currentState!.validate();
+                      if (_formGlobalKey.currentState!.validate()) {
+                        _formGlobalKey.currentState!.save();
+
+                        setState(() {
+                          todos.add(
+                            Todo(
+                              title: _title, 
+                              description: _description, 
+                              priority: _selectedPriority
+                            )
+                          );
+                        });
+                      };
                     }, 
                     style: FilledButton.styleFrom(
                       backgroundColor: Colors.grey[800],
