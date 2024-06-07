@@ -132,7 +132,10 @@ class _HomeState extends State<Home> {
                             )
                           );
                         });
-                      };
+
+                        _formGlobalKey.currentState!.reset();
+                        _selectedPriority = Priority.low;
+                      }
                     }, 
                     style: FilledButton.styleFrom(
                       backgroundColor: Colors.grey[800],
