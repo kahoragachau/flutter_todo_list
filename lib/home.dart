@@ -14,6 +14,9 @@ class _HomeState extends State<Home> {
   // form global Key
   final _formGlobalKey = GlobalKey<FormState>();
 
+  // Default value for priority drop down
+  Priority _selectedPriority = Priority.low;
+
   final List<Todo> todos = [
     const Todo(
       title: 'Buy Milk',
@@ -81,6 +84,26 @@ class _HomeState extends State<Home> {
                         return "Enter a brief Description Longer than 5 characters though";
                       }
                       return null;
+                    },
+                  ),
+
+                  // Dropdown 
+                  DropdownButtonFormField(
+                    value: _selectedPriority,
+                    decoration: const InputDecoration(
+                      label: Text("Priority of Todo")
+                    ),
+                    // map method returns an iterable thats the reasons we convert it into list
+                    items: Priority.values.map((e) {
+                      return DropdownMenuItem(
+                        value: e,
+                        child: Text(e.title),
+                      );
+                    }).toList(),
+                    onChanged: (value) {
+                      setState(() {
+                        _selectedPriority = value!;
+                      });
                     },
                   ),
 
