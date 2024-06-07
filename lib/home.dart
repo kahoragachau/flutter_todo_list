@@ -16,6 +16,8 @@ class _HomeState extends State<Home> {
 
   // Default value for priority drop down
   Priority _selectedPriority = Priority.low;
+  String _title = '';
+  String _description = '';
 
   final List<Todo> todos = [
     const Todo(
@@ -70,6 +72,10 @@ class _HomeState extends State<Home> {
                         return "Enter a value for the title";
                       }
                       return null;
+                    },
+                    // the exclamataion at the end of value is useful because it shows the value can sometimes be null
+                    onSaved: (value){
+                      _title = value!;
                     },
                   ),
 
