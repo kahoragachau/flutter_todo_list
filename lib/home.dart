@@ -91,6 +91,9 @@ class _HomeState extends State<Home> {
                       }
                       return null;
                     },
+                    onSaved: (value) {
+                      _description = value!;
+                    },
                   ),
 
                   // Dropdown 
